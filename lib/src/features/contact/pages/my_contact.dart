@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:json_cubit/src/core/constants/app_strings.dart';
 import 'package:json_cubit/src/features/contact/cubit/contact_cubit.dart';
 import 'package:json_cubit/src/features/contact/pages/contact_details_page.dart';
-
 import '../models/contact_model.dart';
 
 class MyContact extends StatefulWidget {
@@ -20,12 +19,13 @@ class _MyContactState extends State<MyContact> {
     return BlocProvider(
       create: (context) => ContactCubit()..getContactData(),
       child: Scaffold(
+        appBar: AppBar(title: Text(AppStrings.heading1),),
         body: BlocBuilder<ContactCubit, ContactState>(
           builder: (context, state) {
             if (state is ContactInitial) {
               return Container();
             } else if (state is ContactLoading) {
-              return CupertinoActivityIndicator();
+              return const CupertinoActivityIndicator();
             } else if (state is ContactLoaded) {
 
               return ListView.builder(
@@ -57,9 +57,4 @@ class _MyContactState extends State<MyContact> {
       ),
     );
   }
-
-  // void getData() {
-  //   context.read<ContactCubit>().getContactData();
-  // }
-
 }

@@ -1,6 +1,6 @@
 # json_cubit
 
-A new Flutter project.
+Simple Flutter Cubit Contact Application reads contact details from Json file.
 
 ## Getting Started
 

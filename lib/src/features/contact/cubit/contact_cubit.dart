@@ -10,7 +10,7 @@ class ContactCubit extends Cubit<ContactState> {
 
   Future<void> getContactData() async {
     emit(ContactLoading());
-    ContactRepository _contactRepository = ContactRepository();//created an object of ContactRepository
+    ContactRepository _contactRepository = ContactRepository();
     List<ContactModel> contactList = await _contactRepository.getContactsData();//
     emit(ContactLoaded(contactList));
   }
